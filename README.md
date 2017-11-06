@@ -55,4 +55,4 @@ Node js and azure service integration
     ]
 }
 ``` 
-* mpm install
+* npm install
