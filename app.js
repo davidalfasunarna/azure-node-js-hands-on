@@ -3,9 +3,13 @@ var express = require('express');
 var experssHelper = require('./utilities/express');
 var errorHelper = require('./utilities/errors');
 var authHelper = require('./utilities/auth');
+var appInsightsHelper = require('./utilities/appInsights.js');
 
 // Create Express Application
 var app = express();
+
+// Configure Application Insights
+appInsightsHelper.setup(app);
 
 // Configure Locals
 var env = process.env.NODE_ENV || 'development';

@@ -2,9 +2,15 @@ var express = require('express');
 var router = express.Router();
 var request = require('request');
 var authUtility = require('../utilities/auth');
+//var appInsightsUtility = require('../utilities/appInsights');
 
 /* GET profile page. */
 router.get('/', authUtility.ensureAuthenticated, function (req, res) {
+
+    // Record User Details with Custom Event
+    // Generates the tenant ID and a user ID to send to AppInsights
+    // DOESN'T WORK
+    //appInsightsUtility.customEvent(req.user._json.preferred_username, req.user._json.tid);
 
     // Create options object configuring the HTTP call
     var options = {
